@@ -36,7 +36,7 @@ Ya puedes acceder a la página
 http://localhost:3001
 `
 
-##Notas para tener el cuenta
+## Notas para tener el cuenta
 
 -Se necesitan al menos 20 elementos en la base de datos para que la aplicación funcione. La base de datos de por sí, ya cuenta con al menos 30 elementos.
 
@@ -46,4 +46,4 @@ http://localhost:3001
 
 -En la carpeta *DATA* hay un .CSV que se puede usar para probar en la página.
 
-:)
+## :)
