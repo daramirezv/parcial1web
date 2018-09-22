@@ -58,18 +58,6 @@ class Visualizaciones extends Component {
 
     //esto vuelve a cargar todo cuando hayan cambios en la base de datos. Re-renderizando las 20 gráficas
     rerenderizar() {
-        var spec = {
-            '$schema': 'https://vega.github.io/schema/vega-lite/v2.json',
-            'description': 'A simple bar chart with embedded data.',
-            'data': {
-                'name': 'myData'
-            },
-            'mark': 'bar',
-            'encoding': {
-                'y': { 'field': 'a', 'type': 'ordinal' },
-                'x': { 'field': 'b', 'type': 'quantitative' }
-            }
-        }
 
         try {
             fetch('/getVisual')
@@ -79,64 +67,64 @@ class Visualizaciones extends Component {
                     console.log('ZZZ' + json.length);
                     this.setState({ arreglo: json });
 
-                    const view0 = vegaEmbed(this.divvisual0, spec)
+                    const view0 = vegaEmbed(this.divvisual0, JSON.parse(this.state.arreglo[0].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[0].myData)).run());
-                    const view1 = vegaEmbed(this.divvisual1, spec)
+                    const view1 = vegaEmbed(this.divvisual1, JSON.parse(this.state.arreglo[1].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[1].myData)).run());
-                    const view2 = vegaEmbed(this.divvisual2, spec)
+                    const view2 = vegaEmbed(this.divvisual2, JSON.parse(this.state.arreglo[2].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[2].myData)).run());
-                    const view3 = vegaEmbed(this.divvisual3, spec)
+                    const view3 = vegaEmbed(this.divvisual3, JSON.parse(this.state.arreglo[3].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[3].myData)).run());
-                    const view4 = vegaEmbed(this.divvisual4, spec)
+                    const view4 = vegaEmbed(this.divvisual4, JSON.parse(this.state.arreglo[4].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[4].myData)).run());
-                    const view5 = vegaEmbed(this.divvisual5, spec)
+                    const view5 = vegaEmbed(this.divvisual5, JSON.parse(this.state.arreglo[5].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[5].myData)).run());
-                    const view6 = vegaEmbed(this.divvisual6, spec)
+                    const view6 = vegaEmbed(this.divvisual6, JSON.parse(this.state.arreglo[6].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[6].myData)).run());
-                    const view7 = vegaEmbed(this.divvisual7, spec)
+                    const view7 = vegaEmbed(this.divvisual7, JSON.parse(this.state.arreglo[7].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[7].myData)).run());
-                    const view8 = vegaEmbed(this.divvisual8, spec)
+                    const view8 = vegaEmbed(this.divvisual8, JSON.parse(this.state.arreglo[8].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[8].myData)).run());
-                    const view9 = vegaEmbed(this.divvisual9, spec)
+                    const view9 = vegaEmbed(this.divvisual9, JSON.parse(this.state.arreglo[9].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[9].myData)).run());
-                    const view10 = vegaEmbed(this.divvisual10, spec)
+                    const view10 = vegaEmbed(this.divvisual10, JSON.parse(this.state.arreglo[10].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[10].myData)).run());
-                    const view11 = vegaEmbed(this.divvisual11, spec)
+                    const view11 = vegaEmbed(this.divvisual11, JSON.parse(this.state.arreglo[11].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[11].myData)).run());
-                    const view12 = vegaEmbed(this.divvisual12, spec)
+                    const view12 = vegaEmbed(this.divvisual12, JSON.parse(this.state.arreglo[12].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[12].myData)).run());
-                    const view13 = vegaEmbed(this.divvisual13, spec)
+                    const view13 = vegaEmbed(this.divvisual13, JSON.parse(this.state.arreglo[13].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[13].myData)).run());
-                    const view14 = vegaEmbed(this.divvisual14, spec)
+                    const view14 = vegaEmbed(this.divvisual14, JSON.parse(this.state.arreglo[14].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[14].myData)).run());
-                    const view15 = vegaEmbed(this.divvisual15, spec)
+                    const view15 = vegaEmbed(this.divvisual15, JSON.parse(this.state.arreglo[15].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[15].myData)).run());
-                    const view16 = vegaEmbed(this.divvisual16, spec)
+                    const view16 = vegaEmbed(this.divvisual16, JSON.parse(this.state.arreglo[16].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[16].myData)).run());
-                    const view17 = vegaEmbed(this.divvisual17, spec)
+                    const view17 = vegaEmbed(this.divvisual17, JSON.parse(this.state.arreglo[17].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[17].myData)).run());
-                    const view18 = vegaEmbed(this.divvisual18, spec)
+                    const view18 = vegaEmbed(this.divvisual18, JSON.parse(this.state.arreglo[18].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[18].myData)).run());
-                    const view19 = vegaEmbed(this.divvisual19, spec)
+                    const view19 = vegaEmbed(this.divvisual19, JSON.parse(this.state.arreglo[19].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[19].myData)).run());
                 });
@@ -149,19 +137,6 @@ class Visualizaciones extends Component {
     //esto se llama cuando todo montó, generando las 20 gráficas
     componentDidMount() {
 
-        var spec = {
-            '$schema': 'https://vega.github.io/schema/vega-lite/v2.json',
-            'description': 'A simple bar chart with embedded data.',
-            'data': {
-                'name': 'myData'
-            },
-            'mark': 'bar',
-            'encoding': {
-                'y': { 'field': 'a', 'type': 'ordinal' },
-                'x': { 'field': 'b', 'type': 'quantitative' }
-            }
-        }
-
         try {
             fetch('/getVisual')
                 .then((response) => { return response.json(); })
@@ -170,64 +145,64 @@ class Visualizaciones extends Component {
                     console.log('ZZZ' + json.length);
                     this.setState({ arreglo: json });
 
-                    const view0 = vegaEmbed(this.divvisual0, spec)
+                    const view0 = vegaEmbed(this.divvisual0, JSON.parse(this.state.arreglo[0].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[0].myData)).run());
-                    const view1 = vegaEmbed(this.divvisual1, spec)
+                    const view1 = vegaEmbed(this.divvisual1, JSON.parse(this.state.arreglo[1].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[1].myData)).run());
-                    const view2 = vegaEmbed(this.divvisual2, spec)
+                    const view2 = vegaEmbed(this.divvisual2, JSON.parse(this.state.arreglo[2].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[2].myData)).run());
-                    const view3 = vegaEmbed(this.divvisual3, spec)
+                    const view3 = vegaEmbed(this.divvisual3, JSON.parse(this.state.arreglo[3].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[3].myData)).run());
-                    const view4 = vegaEmbed(this.divvisual4, spec)
+                    const view4 = vegaEmbed(this.divvisual4, JSON.parse(this.state.arreglo[4].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[4].myData)).run());
-                    const view5 = vegaEmbed(this.divvisual5, spec)
+                    const view5 = vegaEmbed(this.divvisual5, JSON.parse(this.state.arreglo[5].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[5].myData)).run());
-                    const view6 = vegaEmbed(this.divvisual6, spec)
+                    const view6 = vegaEmbed(this.divvisual6, JSON.parse(this.state.arreglo[6].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[6].myData)).run());
-                    const view7 = vegaEmbed(this.divvisual7, spec)
+                    const view7 = vegaEmbed(this.divvisual7, JSON.parse(this.state.arreglo[7].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[7].myData)).run());
-                    const view8 = vegaEmbed(this.divvisual8, spec)
+                    const view8 = vegaEmbed(this.divvisual8, JSON.parse(this.state.arreglo[8].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[8].myData)).run());
-                    const view9 = vegaEmbed(this.divvisual9, spec)
+                    const view9 = vegaEmbed(this.divvisual9, JSON.parse(this.state.arreglo[9].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[9].myData)).run());
-                    const view10 = vegaEmbed(this.divvisual10, spec)
+                    const view10 = vegaEmbed(this.divvisual10, JSON.parse(this.state.arreglo[10].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[10].myData)).run());
-                    const view11 = vegaEmbed(this.divvisual11, spec)
+                    const view11 = vegaEmbed(this.divvisual11, JSON.parse(this.state.arreglo[11].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[11].myData)).run());
-                    const view12 = vegaEmbed(this.divvisual12, spec)
+                    const view12 = vegaEmbed(this.divvisual12, JSON.parse(this.state.arreglo[12].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[12].myData)).run());
-                    const view13 = vegaEmbed(this.divvisual13, spec)
+                    const view13 = vegaEmbed(this.divvisual13, JSON.parse(this.state.arreglo[13].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[13].myData)).run());
-                    const view14 = vegaEmbed(this.divvisual14, spec)
+                    const view14 = vegaEmbed(this.divvisual14, JSON.parse(this.state.arreglo[14].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[14].myData)).run());
-                    const view15 = vegaEmbed(this.divvisual15, spec)
+                    const view15 = vegaEmbed(this.divvisual15, JSON.parse(this.state.arreglo[15].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[15].myData)).run());
-                    const view16 = vegaEmbed(this.divvisual16, spec)
+                    const view16 = vegaEmbed(this.divvisual16, JSON.parse(this.state.arreglo[16].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[16].myData)).run());
-                    const view17 = vegaEmbed(this.divvisual17, spec)
+                    const view17 = vegaEmbed(this.divvisual17, JSON.parse(this.state.arreglo[17].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[17].myData)).run());
-                    const view18 = vegaEmbed(this.divvisual18, spec)
+                    const view18 = vegaEmbed(this.divvisual18, JSON.parse(this.state.arreglo[18].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[18].myData)).run());
-                    const view19 = vegaEmbed(this.divvisual19, spec)
+                    const view19 = vegaEmbed(this.divvisual19, JSON.parse(this.state.arreglo[19].spec))
                         .catch(error => console.log(error))
                         .then((res) => res.view.insert('myData', JSON.parse(this.state.arreglo[19].myData)).run());
 

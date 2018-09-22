@@ -14,7 +14,7 @@ class Formulario extends Component {
             const titulo = document.getElementById('tituloinput').value;
             const timestamp = + new Date();
 
-            fetch('/postVisual?nombre=' + nombre + '&titulo=' + titulo + '&rating=' + 0 + '&timestamp=' + timestamp + '&myData=' + JSON.stringify(this.props.myData), {
+            fetch('/postVisual?nombre=' + nombre + '&titulo=' + titulo + '&rating=' + 0 + '&timestamp=' + timestamp + '&myData=' + JSON.stringify(this.props.myData) + '&spec=' + JSON.stringify(this.props.spec), {
                 method: 'POST'
             }).then(console.log('done'));
             console.log('done');

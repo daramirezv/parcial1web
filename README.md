@@ -40,17 +40,10 @@ http://localhost:3001
 
 -Se necesitan al menos 20 elementos en la base de datos para que la aplicación funcione. La base de datos de por sí, ya cuenta con al menos 30 elementos.
 
--El punto original del proyecto es que se puede eliminar visualizaciones guardadas en la base de datos.
+-El punto original de mi proyecto es que se puede eliminar visualizaciones guardadas en la base de datos.
 
 -Hay veces que el botón de dar rating no actualiza la vista instantaneamente, por lo que hay que hacer un *refresh* de la página web o volver a instentar presionando el botón.
 
 -En la carpeta *DATA* hay un .CSV que se puede usar para probar en la página.
-
--La aplicación sólo soporta datos JSON que siguen la siguiente estructura. Por lo que hay que tener cuidado de qué JSON/CSV se está cargando en la página.
-
-`
-'y': { 'field': 'a', 'type': 'ordinal' },
-'x': { 'field': 'b', 'type': 'quantitative' }
-`
 
 :)

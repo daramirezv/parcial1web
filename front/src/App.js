@@ -24,13 +24,27 @@ class App extends Component {
           { 'a': 'G', 'b': 19 }, { 'a': 'H', 'b': 87 }, { 'a': 'I', 'b': 52 }
 
         ],
+        spec: {
+          "$schema": "https://vega.github.io/schema/vega-lite/v2.json",
+          "description": "A simple bar chart with embedded data.",
+          "data": {
+            "name": "myData"
+          },
+          "mark": "bar",
+          "encoding": {
+            "y": { "field": "a", "type": "ordinal" },
+            "x": { "field": "b", "type": "quantitative" }
+          }
+        },
         visual: false,
         formulario: false
       };
     this.cargarJson = this.cargarJson.bind(this);
     this.papaSubir = this.papaSubir.bind(this);
     this.verVisuales = this.verVisuales.bind(this);
+    this.cargarSpec = this.cargarSpec.bind(this);
     this.verFormulario = this.verFormulario.bind(this);
+    
   }
 
   //Esto hace que se pueda ver las 20 visualizaciones.
@@ -39,6 +53,18 @@ class App extends Component {
       this.setState({ visual: true })
     else
       this.setState({ visual: false })
+  }
+
+  cargarSpec() {
+    
+    try {
+      this.setState({ spec: JSON.parse(this.divSpec.value) });
+      alert('Se cargó un spec valido')
+    } catch (e) {
+      alert('Hubo un problema subiendo el archivo de spec');
+
+    }
+
   }
 
   //Esto hace que se pueda ver el formulario para registrar una visualizacion en la base de datos.
@@ -52,22 +78,9 @@ class App extends Component {
   //se carga cuando el componente finaliza de montar
   componentDidMount() {
 
-    var spec = {
-      '$schema': 'https://vega.github.io/schema/vega-lite/v2.json',
-      'description': 'A simple bar chart with embedded data.',
-      'data': {
-        'name': 'myData'
-      },
-      'mark': 'bar',
-      'encoding': {
-        'y': { 'field': 'a', 'type': 'ordinal' },
-        'x': { 'field': 'b', 'type': 'quantitative' }
-      }
-    }
-
     //aqui se genera la grafica de los datos que se tienen
     try {
-      const view = vegaEmbed(this.divTarget, spec)
+      const view = vegaEmbed(this.divTarget, this.state.spec)
         .catch(error => console.log(error))
         .then((res) => res.view.insert('myData', this.state.myData).run());
     } catch (e) {
@@ -78,21 +91,8 @@ class App extends Component {
 
   //si se cambio algo en los estados, se vuelve a cargar todo
   componentDidUpdate() {
-    var spec = {
-      '$schema': 'https://vega.github.io/schema/vega-lite/v2.json',
-      'description': 'A simple bar chart with embedded data.',
-      'data': {
-        'name': 'myData'
-      },
-      'mark': 'bar',
-      'encoding': {
-        'y': { 'field': 'a', 'type': 'ordinal' },
-        'x': { 'field': 'b', 'type': 'quantitative' }
-      }
-    }
-
     try {
-      const view = vegaEmbed(this.divTarget, spec)
+      const view = vegaEmbed(this.divTarget, this.state.spec)
         .catch(error => console.log(error))
         .then((res) => res.view.insert('myData', this.state.myData).run());
     } catch (e) {
@@ -146,6 +146,7 @@ class App extends Component {
 
   render() {
     var x = this.state.myData2;
+    var y = this.state.spec;
     return (
       <div className='container'>
 
@@ -158,16 +159,35 @@ class App extends Component {
             {JSON.stringify(x)}
           </div>
         </div>
+        <p>Aquí encuentras un ejemplo del spec que debes cargar.</p>
+        <div className='card'>
+          <div className='card-body'>
+            {JSON.stringify(y)}
+          </div>
+        </div>
+        <h2>JSON</h2>
         <textarea
           className='texto'
-          placeholder='Aqui debes ingresar el JSON que quieres ver, recuerda que debe ser de tipo ordinal y cuantitativo.'
+          placeholder='Aqui debes ingresar el JSON que quieres ver.'
           cols='40'
           rows='10'
           ref={(div) => this.divXD = div}>
         </textarea> <br />
 
+        <h2>SPEC</h2>
+        <textarea
+          className='texto'
+          placeholder='Aquí debes ingresar el spec del proyecto. Hay uno predeterminado con el archivo que se te dio de ejemplo.'
+          cols='40'
+          rows='10'
+          ref={(div) => this.divSpec = div}>
+        </textarea> <br />
+
+        <strong><p>Con este botón puedes cargar el SPEC que vas a usar</p></strong>
+        <button className='btn btn-primary' onClick={this.cargarSpec}>Cargar SPEC</button> 
+
         {/*Boton que carga el JSON escrito dentro del textarea*/}
-        <strong><p>Con este botón puedes generar la gráfica del JSON que escribiste arriba</p></strong>
+        <strong><p>Con este botón puedes generar la gráfica del JSON que escribiste arriba. Tienes que tener el spec válido ya cargado.</p></strong>
         <button className='btn btn-primary' onClick={this.cargarJson}>Cargar JSON</button> <br />
 
 
@@ -185,8 +205,8 @@ class App extends Component {
 
         {/*Aqui se va a abrir el formulario para guardar una visualizacion*/}
         <strong><p>Aqui puedes guardar tu visualizacion en la base de datos</p></strong>
-        <button className='btn btn-primary' onClick={this.verFormulario}>Guaran en la base de datos</button> <br />
-        {this.state.formulario ? <Formulario myData={this.state.myData} /> : null} <br />
+        <button className='btn btn-primary' onClick={this.verFormulario}>Guardar en la base de datos</button> <br />
+        {this.state.formulario ? <Formulario spec ={this.state.spec} myData={this.state.myData} /> : null} <br />
 
         {/*Aqui se van a visualizar las 20 graficas*/}
         <strong><p>Aqui puedes guardar ver las ultimas 20 visualizaciones guardadas</p></strong>
