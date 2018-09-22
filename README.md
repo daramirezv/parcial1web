@@ -1,40 +1,56 @@
-# Consulta anticorrupcion Colombia node-express
+# Parcial 1 - Visualización de gráficas generadas a partir de JSON y CSV
 
-This is an example for a express-react app done by David Andres Ramirez - 201532981
+El objetivo de este proyecto es generar gráficas a partir de JSON y CSV hecho por David Andres Ramirez - 201532981
 
-## Installation
-First of all we need to prepare the data which is going to be used later on. For doing this, run the following line while you are inside the data folder.
+## Instalación
 
-`
-mongoimport -d consultadb -c consultacoleccion --jsonArray --file datos.json
-`
+Se está utilizando mLab, que es una base de datos Mongo externa. Debido a esto, no hay que cargar datos ya que todo se encuentra allí.
 
-Now, you need to get back to the main folder of the proyect, called consulta. Once inside, you need to install all the modules. In order to do this you need to execute the following command
+Si se quiere correr el proyecto localmente, se debe ubicar dentro de la carpeta *front* que está dentro del proyecto, para instalar los modulos necesarios para usar el programa. Una vez allí, se debe correr el siguiente comando. 
 
 `
 npm install
 `
 
-When you finish installing all the modules, you need to enter the "front" subfolder, where you need to run the following command again.
-
-`
-npm install
-`
-
-Now, you need to run
+Cuando se hayan instalado los módulos, ahora se debe crear el build que es un html estático de esta carpeta. Para esto, se debe ejecutar la siguiente linea de comando.
 
 `
 npm run build
 `
 
-The previous command is for making the front folder a static html which is going to be used by the express proyect. Now you can return you the main folder of the proyect, where finally you need to run 
+Ahora, debemos devolvernos a la carpeta principal del proyecto, es decir, salirse de la carpeta *front*. Una vez allí, vamos a instalar los módulos que requiere el back. Para esto, corremos la siguiente linea de comando.
+
+`
+npm install
+`
+
+Ya finalizado este paso, vamos a iniciar la aplicación corriendo el siguiente comando.
 
 `
 npm start
 `
 
-You can access the page by getting into
+Ya puedes acceder a la página 
 
 `
 http://localhost:3001
 `
+
+##Notas para tener el cuenta
+
+-Se necesitan al menos 20 elementos en la base de datos para que la aplicación funcione. La base de datos de por sí, ya cuenta con al menos 30 elementos.
+
+-El punto original del proyecto es que se puede eliminar visualizaciones guardadas en la base de datos.
+
+-Hay veces que el botón de dar rating no actualiza la vista instantaneamente, por lo que hay que hacer un *refresh* de la página web o volver a instentar presionando el botón.
+
+-En la carpeta *DATA* hay un .CSV que se puede usar para probar en la página.
+
+-La aplicación sólo soporta datos JSON que siguen la siguiente estructura. Por lo que hay que tener cuidado de qué JSON/CSV se está cargando en la página.
+
+`
+'y': { 'field': 'a', 'type': 'ordinal' },
+'x': { 'field': 'b', 'type': 'quantitative' }
+`
+
+:)
